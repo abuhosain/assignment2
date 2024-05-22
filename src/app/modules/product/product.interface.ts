@@ -9,6 +9,7 @@ export type TInventory = {
   };
 
 export type TProducct = {
+   _id? : string
     name : string;
     description : string;
     price : number;
