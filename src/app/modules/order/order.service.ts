@@ -11,7 +11,18 @@ const getAllOrderFromDb = async () => {
     return result
 }
 
+export const getOrderWithEmailFromDb = async (email : unknown) => {
+    if (typeof email !== 'string') {
+        throw new Error('Invalid email type');
+    }
+
+    const orders = await Order.find({ email });
+    return orders;
+};
+
+
 export const OrderService = {
     createOrderIntoDb,
-    getAllOrderFromDb
+    getAllOrderFromDb,
+    getOrderWithEmailFromDb
 }
