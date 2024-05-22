@@ -19,6 +19,26 @@ const createOrder = async (req : Request, res : Response) => {
     }
 }
 
+
+const getAllOrder = async (req : Request, res : Response) => {
+ try{
+    const result = await OrderService.getAllOrderFromDb();
+    res.status(200).json({
+        success : true,
+        message : "Orders fetched successfully!",
+        data : result
+    })
+ } catch(error : any){
+    res.status(500).json({
+        success: false,
+        message: error.message || 'Order faild to get',
+        error: error,
+      })
+ }
+
+}
+
 export const OrderController = {
-    createOrder
+    createOrder,
+    getAllOrder
 }
