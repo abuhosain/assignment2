@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Model, Schema, model } from "mongoose";
 import { TInventory, TProducct, TVariant } from "./product.interface";
 
 const variantsShecma = new Schema<TVariant>({
@@ -57,4 +57,17 @@ productSchema.pre("save", function(next) {
     next()
 })
 
-export const Product = model<TProducct>("Product", productSchema);
+
+// create custom statics method
+
+productSchema.statics.isProductExist = async function(id : string){
+    const existingProduct = await Product.findById(id);
+    return existingProduct
+}
+
+export interface ProductModel extends Model<TProducct> {
+    isProductExist(id : string) : Promise<TProducct | null>
+}
+
+// create product model
+export const Product = model<TProducct, ProductModel>("Product", productSchema);
