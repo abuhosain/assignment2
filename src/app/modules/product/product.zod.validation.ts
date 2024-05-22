@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { TInventory, TProducct, TVariant } from "./product.interface";
 
 const variantSchema = z.object({
   type: z.string().min(1, "Type is required"),
