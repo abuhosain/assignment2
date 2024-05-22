@@ -1,7 +1,8 @@
 import express, { Application, Request, Response } from "express"
 import cors from "cors"
-import { ProductRouter, notFoundRouter } from "./app/modules/product/product.route";
-import { OrderRouter } from "./app/modules/order/order.route";
+import { ProductRouter} from "./app/modules/product/product.route";
+import { OrderRouter  } from "./app/modules/order/order.route";
+import { notFoundRouter } from "./notFoundRouter";
 const app : Application = express()
  
 // parser
@@ -12,7 +13,9 @@ app.use(cors())
 app.use("/api", ProductRouter)
 app.use("/api", OrderRouter)
 
-app.use(notFoundRouter);
+ 
+
+app.use(notFoundRouter)
 
 const getAController = (req : Request, res : Response) => {
     const a = 10

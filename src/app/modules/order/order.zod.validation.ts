@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const customProductIdSchema = z.string().regex(/^[a-fA-F0-9]{24}$/, { message: 'Invalid product ID (must be a 24-character alphanumeric string)' });
+const customProductIdSchema = z.string().min(10, { message: 'Invalid product ID (must be at least 10 characters)' }).max(44, { message: 'Invalid product ID (must be at most 44 characters)' });
 const orderSchema = z.object({
   email: z
     .string()
