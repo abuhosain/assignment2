@@ -38,15 +38,7 @@ const productSchema= new Schema<TProducct>({
 });
 
 
-// inventorySchema.pre('save', function(next) {
-//     console.log('Pre-save hook executed');
-//     if (this.quantity === 0) {
-//         this.inStock = false;
-//     } else {
-//         this.inStock = true;
-//     }
-//     next();
-// });
+ 
  
 productSchema.pre("save", function(next) {
 
