@@ -13,16 +13,19 @@ app.use(cors())
 app.use("/api", ProductRouter)
 app.use("/api", OrderRouter)
 
- 
-
-app.use(notFoundRouter)
-
 const getAController = (req : Request, res : Response) => {
-    const a = 10
-    res.send(a)
-  }
+  res.status(200).json({
+    message : "server is running"
+  })
+}
 
 app.get('/',  getAController)
+
+ 
+// not found router
+app.use("*",notFoundRouter)
+
+
 
  
 
