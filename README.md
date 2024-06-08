@@ -25,7 +25,7 @@ To find and fix this project code error i am using eslint and prettier
 #### create a single product
 
 ```http
-  POST /api/products/create-product
+  POST /api/products
 ```
 
 #### Get all products
@@ -81,7 +81,7 @@ To find and fix this project code error i am using eslint and prettier
 #### create a single order
 
 ```http
-  POST /api/orders/create-order
+  POST /api/orders/
 ```
 #### get all  order
 
